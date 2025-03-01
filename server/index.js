@@ -1,17 +1,12 @@
 // Import the Express library
 const express = require("express");
-
+const routes = require("./routes/auth-route");
 // Create a new Express application
 const app = express();
+app.use(routes);
 
 // Define the port number
 const PORT = 3000;
-
-// Define the root route
-app.get("/", (req, res) => {
-  // Return a successful response with a message
-  res.status(200).send("Hello World!");
-});
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
