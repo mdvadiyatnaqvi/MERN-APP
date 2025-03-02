@@ -1,8 +1,10 @@
 // Import the Express library
 const express = require("express");
-const routes = require("./routes/auth-route");
-// Create a new Express application
 const app = express();
+const routes = require("./routes/auth-route");
+
+// Use middleware to parse JSON request bodies
+app.use(express.json());
 app.use(routes);
 
 // Define the port number
