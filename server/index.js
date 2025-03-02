@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 // Import the Express library and other dependencies
 const express = require("express");
 const connectDB = require("./utils/db");
@@ -11,7 +13,7 @@ app.use(express.json()); // Parse JSON request bodies
 app.use(authRoutes); // Use authentication routes
 
 // Server Configuration
-const PORT = 5500;
+const PORT = process.env.PORT || 5500;
 
 // Server Initialization
 connectDB()
