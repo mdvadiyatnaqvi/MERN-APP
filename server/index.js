@@ -1,17 +1,26 @@
-// Import the Express library
+// Import the Express library and other dependencies
 const express = require("express");
+const connectDB = require("./utils/db");
+const authRoutes = require("./routes/auth-route");
+
+// Create the new Express Application
 const app = express();
-const routes = require("./routes/auth-route");
 
-// Use middleware to parse JSON request bodies
-app.use(express.json());
-app.use(routes);
+// Middleware Configuration
+app.use(express.json()); // Parse JSON request bodies
+app.use(authRoutes); // Use authentication routes
 
-// Define the port number
+// Server Configuration
 const PORT = 5500;
 
-// Start the server and listen on the specified port
-app.listen(PORT, () => {
-  // Log a message to the console when the server is running
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Server Initialization
+connectDB()
+  .then(() => {
+    // Start the server and listen on the specified port
+    app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("Error connecting to database:", error);
+  });
