@@ -1,6 +1,6 @@
 // controller for home route
 
-const Home = async (req, res) => {
+const home = async (req, res) => {
   try {
     res.status(200).send("Hello from home route and controller!");
   } catch (error) {
@@ -8,4 +8,4 @@ const Home = async (req, res) => {
   }
 };
 
-module.exports = { Home };
+module.exports = home;

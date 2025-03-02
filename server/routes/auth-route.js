@@ -2,8 +2,10 @@ const express = require("express");
 const router = express.Router();
 
 // importing controllers
-const { Home } = require("../controllers/auth-controllers");
+const home = require("../controllers/home-controller");
+const register = require("../controllers/register-controller");
 
-router.route("/").get(Home);
+router.route("/").get(home);
+router.route("/register").get(register);
 
 module.exports = router;
