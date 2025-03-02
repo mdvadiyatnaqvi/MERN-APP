@@ -6,7 +6,7 @@ const app = express();
 app.use(routes);
 
 // Define the port number
-const PORT = 3000;
+const PORT = 5500;
 
 // Start the server and listen on the specified port
 app.listen(PORT, () => {
