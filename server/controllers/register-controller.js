@@ -22,7 +22,7 @@ const register = async (req, res) => {
     });
     // console.log(req.body);
   } catch (error) {
-    res.status(404).json("Internal Server Error");
+    res.status(500).json("Internal Server Error");
   }
 };
 
