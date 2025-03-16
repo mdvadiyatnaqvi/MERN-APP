@@ -1,5 +1,4 @@
 const User = require("../models/user-model");
-const bcrypt = require("bcrypt");
 
 // home controller
 const home = async (req, res) => {
@@ -49,8 +48,6 @@ const login = async (req, res) => {
     }
 
     // matching password is same or not
-    // const isMatch = await bcrypt.compare(password, user.password);
-
     // below we are going to create instance method to compare the password as like generateToken()
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
