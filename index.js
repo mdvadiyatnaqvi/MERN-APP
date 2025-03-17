@@ -7,11 +7,11 @@ const connectDb = require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
 
 const app = express();
-app.use(cors);
+app.use(cors()); // Fixed CORS middleware usage
 app.use(express.json());
 app.use(authRoutes);
 app.use(contactRoute);
-app.use(errorMiddleware);
+app.use(errorMiddleware); // Ensure error middleware is last
 
 const PORT = process.env.PORT || 5500;
 

@@ -3,7 +3,7 @@ const User = require("../models/user-model");
 // home controller
 const home = async (req, res) => {
   try {
-    res.status(200).send("Working Fine!");
+    res.status(200).send("Service is running!");
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error!" });
   }
